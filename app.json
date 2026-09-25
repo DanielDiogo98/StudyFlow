@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "StudyFlow",
+    "slug": "studyflow",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#5B5FEF"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.studyflow.app"
+    },
+    "android": {
+      "package": "com.studyflow.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#5B5FEF"
+      },
+      "permissions": ["SCHEDULE_EXACT_ALARM", "POST_NOTIFICATIONS"]
+    },
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./src/assets/icon.png",
+          "color": "#5B5FEF"
+        }
+      ]
+    ]
+  }
+}
