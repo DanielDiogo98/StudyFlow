@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -22,7 +22,9 @@ const SettingsStack = createNativeStackNavigator();
 const stackScreenOptions = {
   headerStyle: { backgroundColor: colors.card },
   headerTintColor: colors.text,
-  headerTitleStyle: { fontWeight: '700' },
+  headerTitleStyle: { fontWeight: '600' },
+  headerShadowVisible: false,
+  contentStyle: { backgroundColor: colors.background },
 };
 
 function SubjectsStackNavigator() {
@@ -86,12 +88,15 @@ const ICONS = {
 
 export default function RootNavigator() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={{ ...DefaultTheme, colors: { ...DefaultTheme.colors, primary: colors.primary, background: colors.background, card: colors.card, text: colors.text, border: colors.border, notification: colors.danger } }}>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           headerStyle: { backgroundColor: colors.card },
           headerTintColor: colors.text,
-          headerTitleStyle: { fontWeight: '700' },
+          headerTitleStyle: { fontWeight: '600' },
+          headerShadowVisible: false,
+          tabBarStyle: { backgroundColor: colors.card, borderTopColor: colors.border, height: 72, paddingTop: 10, paddingBottom: 12, elevation: 0 },
+          tabBarLabelStyle: { fontSize: 11, fontWeight: '600', marginTop: 4 },
           tabBarActiveTintColor: colors.primary,
           tabBarInactiveTintColor: colors.textMuted,
           tabBarIcon: ({ color, size }) => (
@@ -99,7 +104,7 @@ export default function RootNavigator() {
           ),
         })}
       >
-        <Tab.Screen name="Hoje" component={HomeScreen} options={{ title: 'Hoje' }} />
+        <Tab.Screen name="Hoje" component={HomeScreen} options={{ title: 'StudyFlow', tabBarLabel: 'Hoje' }} />
         <Tab.Screen
           name="Cronograma"
           component={ScheduleScreen}

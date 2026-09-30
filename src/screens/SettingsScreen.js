@@ -104,8 +104,7 @@ export default function SettingsScreen({ navigation }) {
 
         <Text style={styles.sectionTitle}>Dados</Text>
         <Text style={styles.helperText}>
-          Todos os seus dados ficam salvos apenas neste aparelho (AsyncStorage), sem necessidade de
-          internet.
+          Seus dados ficam salvos neste dispositivo e podem ser acessados sem internet.
         </Text>
         <TouchableOpacity style={styles.dangerBtn} onPress={handleClearData}>
           <Text style={styles.dangerBtnText}>Apagar todos os dados</Text>
@@ -117,7 +116,7 @@ export default function SettingsScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
-  scroll: { padding: 20, paddingBottom: 40 },
+  scroll: { padding: 24, paddingBottom: 48, width: '100%', maxWidth: 760, alignSelf: 'center' },
   sectionTitle: {
     fontSize: 12,
     fontWeight: '700',

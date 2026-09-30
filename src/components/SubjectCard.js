@@ -33,8 +33,8 @@ export default function SubjectCard({ subject, progress, onPress, onDelete }) {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.card,
-    borderRadius: 14,
-    padding: 16,
+    borderRadius: 12,
+    padding: 20,
     marginBottom: 12,
     borderWidth: 1,
     borderColor: colors.border,
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   progressLabel: {
-    marginTop: 6,
+    marginTop: 10,
     fontSize: 12,
     color: colors.textMuted,
   },

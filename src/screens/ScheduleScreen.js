@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   regenBtnText: { color: colors.primary, fontWeight: '700', fontSize: 12 },
-  list: { paddingHorizontal: 20, paddingBottom: 24 },
+  list: { paddingHorizontal: 24, paddingBottom: 32, width: '100%', maxWidth: 760, alignSelf: 'center' },
   sectionHeader: {
     fontSize: 13,
     fontWeight: '700',
@@ -110,6 +110,6 @@ const styles = StyleSheet.create({
     marginTop: 14,
     marginBottom: 8,
   },
-  emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 40 },
+  emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 32, maxWidth: 520, width: '100%', alignSelf: 'center' },
   emptyText: { fontSize: 14, color: colors.textMuted, textAlign: 'center', lineHeight: 20 },
 });

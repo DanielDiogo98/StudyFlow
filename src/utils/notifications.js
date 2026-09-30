@@ -73,7 +73,7 @@ export async function rescheduleSessionNotifications(sessions, subjectsById, opt
     // eslint-disable-next-line no-await-in-loop
     await Notifications.scheduleNotificationAsync({
       content: {
-        title: 'Hora de estudar! 📚',
+        title: 'Hora de estudar',
         body: `${subjectName} começa às ${session.startTime}. Bora manter o ritmo?`,
         data: { sessionId: session.id },
       },

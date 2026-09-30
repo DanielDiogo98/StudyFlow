@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -23,10 +24,10 @@ export default function SubjectsScreen({ navigation }) {
     <SafeAreaView style={styles.container} edges={['bottom']}>
       {subjects.length === 0 ? (
         <View style={styles.emptyState}>
-          <Text style={styles.emptyEmoji}>📚</Text>
+          <View style={styles.emptyIcon}><Ionicons name="book-outline" size={28} color={colors.primary} /></View>
           <Text style={styles.emptyTitle}>Nenhuma matéria cadastrada</Text>
           <Text style={styles.emptyText}>
-            Toque no botão + para adicionar a primeira matéria que você quer estudar.
+            Adicione sua primeira matéria para começar a organizar os estudos.
           </Text>
         </View>
       ) : (
@@ -44,7 +45,7 @@ export default function SubjectsScreen({ navigation }) {
         />
       )}
 
-      <TouchableOpacity style={styles.fab} onPress={() => navigation.navigate('SubjectForm')}>
+      <TouchableOpacity accessibilityRole="button" accessibilityLabel="Adicionar matéria" style={styles.fab} onPress={() => navigation.navigate('SubjectForm')}>
         <Text style={styles.fabText}>+</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -53,10 +54,10 @@ export default function SubjectsScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
-  list: { padding: 20 },
-  emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 40 },
-  emptyEmoji: { fontSize: 48, marginBottom: 12 },
-  emptyTitle: { fontSize: 18, fontWeight: '700', color: colors.text, marginBottom: 6 },
+  list: { padding: 24, paddingBottom: 100, width: '100%', maxWidth: 760, alignSelf: 'center' },
+  emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 32, maxWidth: 520, width: '100%', alignSelf: 'center' },
+  emptyIcon: { width: 64, height: 64, borderRadius: 16, backgroundColor: colors.primaryLight, alignItems: 'center', justifyContent: 'center', marginBottom: 20 },
+  emptyTitle: { textAlign: 'center', fontSize: 20, fontWeight: '700', color: colors.text, marginBottom: 6 },
   emptyText: { fontSize: 14, color: colors.textMuted, textAlign: 'center', lineHeight: 20 },
   fab: {
     position: 'absolute',
@@ -64,13 +65,13 @@ const styles = StyleSheet.create({
     bottom: 24,
     width: 56,
     height: 56,
-    borderRadius: 28,
+    borderRadius: 16,
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 4,
     shadowColor: '#000',
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.12,
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 3 },
   },

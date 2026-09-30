@@ -142,7 +142,7 @@ export default function AvailabilityScreen() {
           )}
 
           <TouchableOpacity style={styles.addBtn} onPress={addBlock}>
-            <Text style={styles.addBtnText}>+ Adicionar bloco de disponibilidade</Text>
+            <Text style={styles.addBtnText}>Adicionar horário</Text>
           </TouchableOpacity>
         </View>
 
@@ -172,11 +172,11 @@ export default function AvailabilityScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
-  scroll: { padding: 20, paddingBottom: 40 },
+  scroll: { padding: 24, paddingBottom: 48, width: '100%', maxWidth: 760, alignSelf: 'center' },
   introText: { fontSize: 13, color: colors.textMuted, marginBottom: 16, lineHeight: 19 },
   formCard: {
     backgroundColor: colors.card,
-    borderRadius: 14,
+    borderRadius: 12,
     borderWidth: 1,
     borderColor: colors.border,
     padding: 16,
@@ -185,9 +185,10 @@ const styles = StyleSheet.create({
   label: { fontSize: 12, fontWeight: '600', color: colors.textMuted, marginBottom: 8 },
   weekdayRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 16 },
   weekdayChip: {
-    width: 40,
+    flex: 1,
+    marginHorizontal: 2,
     height: 40,
-    borderRadius: 20,
+    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.background,
@@ -217,7 +218,7 @@ const styles = StyleSheet.create({
   addBtnText: { color: colors.primary, fontWeight: '700', fontSize: 14 },
   dayGroup: { marginBottom: 16 },
   dayTitle: { fontSize: 14, fontWeight: '700', color: colors.text, marginBottom: 6 },
-  noBlocks: { fontSize: 13, color: colors.textMuted, fontStyle: 'italic' },
+  noBlocks: { fontSize: 13, color: colors.textMuted, lineHeight: 20 },
   blockRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',

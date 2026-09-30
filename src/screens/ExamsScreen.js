@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons';
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -10,7 +11,7 @@ function daysUntil(dateIso) {
   const target = new Date(`${dateIso}T00:00:00`);
   const diff = Math.round((target - today) / (1000 * 60 * 60 * 24));
   if (diff < 0) return 'Encerrado';
-  if (diff === 0) return 'É hoje!';
+  if (diff === 0) return 'Hoje';
   if (diff === 1) return 'Amanhã';
   return `Em ${diff} dias`;
 }
@@ -39,11 +40,10 @@ export default function ExamsScreen({ navigation }) {
     <SafeAreaView style={styles.container} edges={['bottom']}>
       {sorted.length === 0 ? (
         <View style={styles.emptyState}>
-          <Text style={styles.emptyEmoji}>📝</Text>
+          <View style={styles.emptyIcon}><Ionicons name="document-text-outline" size={28} color={colors.primary} /></View>
           <Text style={styles.emptyTitle}>Nenhuma prova ou trabalho</Text>
           <Text style={styles.emptyText}>
-            Cadastre suas provas e trabalhos com data de entrega para o StudyFlow montar seu
-            cronograma.
+            Adicione uma atividade e seu prazo para planejar os estudos.
           </Text>
         </View>
       ) : (
@@ -77,7 +77,7 @@ export default function ExamsScreen({ navigation }) {
         />
       )}
 
-      <TouchableOpacity style={styles.fab} onPress={handleAdd}>
+      <TouchableOpacity accessibilityRole="button" accessibilityLabel="Adicionar prova ou trabalho" style={styles.fab} onPress={handleAdd}>
         <Text style={styles.fabText}>+</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -86,11 +86,11 @@ export default function ExamsScreen({ navigation }) {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.background },
-  list: { padding: 20 },
+  list: { padding: 24, paddingBottom: 100, width: '100%', maxWidth: 760, alignSelf: 'center' },
   card: {
     flexDirection: 'row',
     backgroundColor: colors.card,
-    borderRadius: 14,
+    borderRadius: 12,
     marginBottom: 12,
     overflow: 'hidden',
     borderWidth: 1,
@@ -103,9 +103,9 @@ const styles = StyleSheet.create({
   days: { fontSize: 12, fontWeight: '600', color: colors.textMuted },
   title: { fontSize: 16, fontWeight: '700', color: colors.text, marginTop: 4 },
   meta: { fontSize: 12, color: colors.textMuted, marginTop: 4 },
-  emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 40 },
-  emptyEmoji: { fontSize: 48, marginBottom: 12 },
-  emptyTitle: { fontSize: 18, fontWeight: '700', color: colors.text, marginBottom: 6 },
+  emptyState: { flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 32, maxWidth: 520, width: '100%', alignSelf: 'center' },
+  emptyIcon: { width: 64, height: 64, borderRadius: 16, backgroundColor: colors.primaryLight, alignItems: 'center', justifyContent: 'center', marginBottom: 20 },
+  emptyTitle: { textAlign: 'center', fontSize: 20, fontWeight: '700', color: colors.text, marginBottom: 6 },
   emptyText: { fontSize: 14, color: colors.textMuted, textAlign: 'center', lineHeight: 20 },
   fab: {
     position: 'absolute',
@@ -113,13 +113,13 @@ const styles = StyleSheet.create({
     bottom: 24,
     width: 56,
     height: 56,
-    borderRadius: 28,
+    borderRadius: 16,
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 4,
     shadowColor: '#000',
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.12,
     shadowRadius: 6,
     shadowOffset: { width: 0, height: 3 },
   },

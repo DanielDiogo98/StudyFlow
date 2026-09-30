@@ -142,8 +142,7 @@ export default function ExamFormScreen({ navigation }) {
             keyboardType="numeric"
           />
           <Text style={styles.hint}>
-            Dica: pense em quantos capítulos/tópicos faltam e estime quantas horas precisaria para
-            revisar tudo. O StudyFlow distribuirá esse tempo nos seus horários livres.
+            Estime o tempo necessário para revisar o conteúdo. Ele será distribuído nos seus horários disponíveis.
           </Text>
 
           <TouchableOpacity style={styles.saveBtn} onPress={handleSave} disabled={saving}>
@@ -156,7 +155,7 @@ export default function ExamFormScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background, padding: 20 },
+  container: { flex: 1, backgroundColor: colors.background, padding: 24, width: '100%', maxWidth: 760, alignSelf: 'center' },
   label: { fontSize: 13, fontWeight: '600', color: colors.textMuted, marginBottom: 8, marginTop: 18 },
   input: {
     backgroundColor: colors.card,

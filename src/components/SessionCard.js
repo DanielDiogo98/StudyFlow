@@ -31,7 +31,7 @@ export default function SessionCard({ session, subject, exam, onComplete, onMiss
         <Text style={styles.subject}>{subject?.name || 'Matéria'}</Text>
         {exam && (
           <Text style={styles.examTitle} numberOfLines={1}>
-            {exam.type === 'prova' ? '📝 ' : '📄 '}
+            {exam.type === 'prova' ? 'Prova · ' : 'Trabalho · '}
             {exam.title}
           </Text>
         )}
@@ -58,18 +58,18 @@ const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     backgroundColor: colors.card,
-    borderRadius: 14,
+    borderRadius: 12,
     marginBottom: 12,
     overflow: 'hidden',
     borderWidth: 1,
     borderColor: colors.border,
   },
   stripe: {
-    width: 6,
+    width: 3,
   },
   content: {
     flex: 1,
-    padding: 14,
+    padding: 18,
   },
   topRow: {
     flexDirection: 'row',
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   btn: {
-    paddingVertical: 7,
+    paddingVertical: 10,
     paddingHorizontal: 12,
     borderRadius: 8,
     marginRight: 8,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   btnMiss: {
-    backgroundColor: colors.primaryLight,
+    backgroundColor: colors.background,
   },
   btnMissText: {
     color: colors.danger,

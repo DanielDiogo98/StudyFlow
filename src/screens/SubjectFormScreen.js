@@ -45,7 +45,7 @@ export default function SubjectFormScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: colors.background, padding: 20 },
+  container: { flex: 1, backgroundColor: colors.background, padding: 24, width: '100%', maxWidth: 760, alignSelf: 'center' },
   label: { fontSize: 13, fontWeight: '600', color: colors.textMuted, marginBottom: 8 },
   input: {
     backgroundColor: colors.card,
